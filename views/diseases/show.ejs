@@ -1,0 +1,13 @@
+<h1>
+	Disease: <%= disease.name%>
+</h1>
+<div class="well">
+	<p>Description: <%=disease.description%></p>
+	<p>Severity: <%=disease.severity%></p>
+	<p>Symptoms:</p>
+	<ul class = "list-group">
+	<%disease.symptoms.forEach(function(symptom){%>
+			<li class = "list-group-item"><%=symptom.name%></li>
+	<%});%>
+	</ul>
+</div>

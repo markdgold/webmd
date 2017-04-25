@@ -1,0 +1,10 @@
+<div class="tex-center">
+	<h1>Disease List</h1>
+	<% diseases.forEach(function(disease){ %>
+			<div class="well">
+				<a href="/diseases/<%=disease.id%>">
+					<%=disease.name%>
+				</a>
+			</div>
+	<% }); %>
+</div>
