@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var async = require('async');
 var db = require('../models');
 
 router.get('/', function(req, res) {
@@ -21,8 +22,11 @@ router.get('/add', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-    var symptomId = req.params.id;
-    db.symptom.findById(symptomId).then(function(symptom) {
+    db.symptom.findOne({
+        where: { id: req.params.id },
+        include: [db.disease]
+    }).then(function(symptom) {
+        console.log(symptom.diseases);
         res.render('symptoms/show', { symptom: symptom });
     })
 })

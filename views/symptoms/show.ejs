@@ -6,4 +6,10 @@
 <div class="well">
 	<p>Description: <%=symptom.description%></p>
 	<p>Affected Systems: <%=symptom.affectedSystems%></p>
+	<p>Related Diseases:</p>
+	<ul class = "list-group">
+	<%symptom.diseases.forEach(function(disease){%>
+			<li class = "list-group-item"><%=disease.name%></li>
+	<%});%>
+	</ul>
 </div>

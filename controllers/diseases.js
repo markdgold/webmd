@@ -49,11 +49,11 @@ router.get('/add', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-    var diseaseId = req.params.id;
     db.disease.findOne({
         where: { id: req.params.id },
         include: [db.symptom]
     }).then(function(disease) {
+        console.log(disease.symptoms);
         res.render('diseases/show', { disease: disease });
     });
 });
